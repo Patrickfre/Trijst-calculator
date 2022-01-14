@@ -21,18 +21,44 @@ function perimetrs(m1, m2, m3) {
     return p;
 }
 function laukums(m1, m2, m3) {
-    const m=nolasa();
-    m1=m.m1; m2=m.m2; m3=m.m3;
-    const pusper = perimetrs(m1,m2,m3) / 2;
+    const m = nolasa();
+    m1 = m.m1; m2 = m.m2; m3 = m.m3;
+    const pusper = perimetrs(m1, m2, m3) / 2;
     let laukums = Math.sqrt(pusper * (pusper - m1) * (pusper - m2) * (pusper - m3));
     console.log(laukums);
     return laukums;
 }
-function rezultats(){
-    const m=nolasa();
-    m1=m.m1; m2=m.m2; m3=m.m3;
-    console.log(m1,m2,m3);
-    if(!nolasa()){
-        t="Nepareizi ievaddati, trijstūra malu vērtībām jābūt lielākām par 0";
+function irTrijsturis(m1, m2, m3) {
+    if (m1 < m2 + m3 && m2 < m1 + m3 && m3 < m1 + m2) {
+        return true;
+    } else {
+        return false;
     }
+}
+function rezultats() {
+    const m = nolasa();
+    m1 = m.m1; m2 = m.m2; m3 = m.m3;
+    console.log(m1, m2, m3);
+    if (!nolasa()) {
+        t = "Nepareizi ievaddati, trijstūra malu vērtībām jābūt lielākām par 0";
+    } else {
+        if (irTrijsturis(m1, m2, m3) == false) {
+            t = "Trijstūris neeksistē"
+        } else {
+            t = "Trijstūris ar malu garu garumiem " + m1 + ", " + m2 + ", " + m3 + " Ir reāls";
+        }
+        const p = perimetrs(m1, m2, m3);
+        const s = Math.round(laukums(m1, m2, m3) * 100) / 100;
+        t += " Perimetrs ir " + p + " un laukums ir " + s + ".";
+    }
+    console.log(t);
+    return t;
+}
+function izvadaTekstu(){
+    const teksts = rezultats();
+    console.log(teksts);
+    const sakne = document.getElementById("izvade");
+    const raksti = document.createElement("p");
+    raksti.innerHTML=teksts;
+    sakne.appendChild(raksti);
 }
