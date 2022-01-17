@@ -45,7 +45,7 @@ function rezultats() {
         if (irTrijsturis(m1, m2, m3) == false) {
             t = "Trijstūris neeksistē"
         } else {
-            t = "Trijstūris ar malu garu garumiem " + m1 + ", " + m2 + ", " + m3 + " Ir reāls";
+            t = "Trijstūris ar malu garu garumiem " + m1 + ", " + m2 + ", " + m3 + " ir reāls";
         }
         const p = perimetrs(m1, m2, m3);
         const s = Math.round(laukums(m1, m2, m3) * 100) / 100;
