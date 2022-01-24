@@ -47,12 +47,19 @@ function rezultats() {
         } else {
             t = "Trijstūris ar malu garu garumiem " + m1 + ", " + m2 + ", " + m3 + " ir reāls.";
             if (m1 == m2 && m2 == m3) {
-                t + "Tas ir vienādmalu trijstūris. "
-            } else{
                 const p = perimetrs(m1, m2, m3);
                 const s = Math.round(laukums(m1, m2, m3) * 100) / 100;
-                t += " Perimetrs ir " + p + " un laukums ir " + s + ".";
+                t += "Tas ir vienādmalu trijstūris.";
+            } else {
+                if(m1 == m2 || m2 == m3 || m3==m2){
+                    const p = perimetrs(m1, m2, m3);
+                    const s = Math.round(laukums(m1, m2, m3) * 100) / 100;
+                    t += "Tas ir vienādsānu trijstūris.";
+                }
             }
+            const p = perimetrs(m1, m2, m3);
+            const s = Math.round(laukums(m1, m2, m3) * 100) / 100;
+            t += " Perimetrs ir " + p + " un laukums ir " + s + "."
         }
     }
     console.log(t);
