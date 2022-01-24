@@ -1,3 +1,3 @@
 # Trijst-calculator
 calc
-https://patrickfre.github.io/Trijst-calculator/
+https://patrickfre.github.io/Trijstcalculator/
